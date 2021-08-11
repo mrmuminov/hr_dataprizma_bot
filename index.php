@@ -5,7 +5,7 @@ include "Telegram.php";
 include "DB.php";
 $telegram = new Telegram("1642425555:AAFX_FCLxTsQV9gGUTihwCOBH5n_WEz6Az8");
 $db = new DB();
-$buttonMessage = "Boshlash";
+$buttonMessage = "Anketa to'ldirish";
 $telegram->onMessage("/start", function ($telegram, $from) use ($db,$buttonMessage){
 
     $user = $db->getUser($from->id);
@@ -15,7 +15,7 @@ $telegram->onMessage("/start", function ($telegram, $from) use ($db,$buttonMessa
     $db->updateColumn($from->id, 'hr_users','step', "start");
     $telegram->sendMessage([
         'chat_id' => $from->id,
-        'text' => "Assalomu alaykum\n \"Dataprizma LLC\" kompaniyasi Anketa qabul qilish botiga xush kelibsiz.\n\nAnketa to'ldirish uchun Boshlash tugmasini bosing",
+        'text' => "Assalomu alaykum\n \"Dataprizma\" kompaniyasining\nAnketa qabul qilish botiga xush kelibsiz.\n\nAnketa to'ldirish uchun quyidagi tugmadan foydalaning",
         'reply_markup' => json_encode([
             'keyboard' => [
                 [['text' => $buttonMessage]],

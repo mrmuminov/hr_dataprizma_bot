@@ -10,7 +10,7 @@ class DB {
 
     static function getDb(){
         if (is_null(self::$db)) {
-            self::$db = new PDO('pgsql:host=localhost;port=5432;dbname=shop_telegram_bot;', 'postgres', 'AsDfGhJkL;"');
+            self::$db = new PDO('pgsql:host=localhost;port=7432;dbname=hr_dataprizma_bot;', 'postgres', 'postgres@postgres');
         }
         return self::$db;
     }
